@@ -1,0 +1,27 @@
+dialog{
+    min-width: 600px;
+
+    padding: 0px;
+    border: 1px solid #b1becb;
+    border-radius: 5px;
+    background-color: #f2f2f3;
+}
+
+dialog .titulo{
+    text-align: left;
+    background-color: #0A3D62;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.dialogBotoes{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.dialogConteudo{
+    margin:20px;
+}

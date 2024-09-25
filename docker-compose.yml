@@ -1,0 +1,32 @@
+
+services:
+  web:
+    build:
+      context: /
+    container_name: app-medicacao-front
+    ports:
+      - "3000:3000"
+   
+  remedioapi: 
+    build:
+      context: /../remedio_api
+    container_name: remedioapi
+    ports:
+      - "5000:5000"
+    
+  medicamentoapi:
+    build:
+      context: /../medicamento_api
+    container_name: medicamentoapi  
+    ports:
+      - "5001:5001"
+
+  gatewayapi:  
+    build:
+      context: /../gateway_api
+    container_name: gatewayapi
+    ports:
+      - "5002:5002"
+    depends_on:
+      - medicamentoapi 
+      - remedioapi 

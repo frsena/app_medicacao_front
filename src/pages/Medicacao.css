@@ -1,0 +1,82 @@
+.form {
+    margin: 20px 0px;
+    background-color: white;
+    padding: 30px 40px;
+    display: flex; 
+    justify-content: center;
+    flex-direction: column;
+}
+
+.divLinha{
+    display: flex;
+    flex-direction: row;
+}
+
+.divIdentificador{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.divRemedio{
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    width: 200px; 
+}
+.divDataInicio{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+ .inputQuantidade{
+    width: 100px;
+    border: 0px;
+    border-bottom: 1px solid #b1becb;
+    padding: 0px 7px 0px 7px;
+    font-size: 16px;
+}
+
+ 
+.divQuantidadeVezes{
+    margin-right: 10px;
+    width: 350px;
+    margin-top: 25px;
+    display: flex;
+} 
+
+.divQuantidadeDias{
+    width: 350px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: right;
+} 
+
+.inputDescricao{
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid #b1becb;
+    padding: 0px 7px 0px 7px;
+    font-size: 16px;
+}
+
+.inputDescricao:focus{
+    border: 0px;
+    border-bottom: 1px solid #b1becb;
+}
+
+
+.divDescricao{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.inputDialog {
+    margin: 0;
+    border: 1px solid rgb(219, 219, 219,1);
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 5px;
+}

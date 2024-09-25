@@ -1,0 +1,30 @@
+table{
+    margin: 20px 0 40px;
+    border: 1px solid #b1becb;
+    width: 100%;
+}
+
+thead{
+    background: #11588C;
+    color: white;
+    font-weight: bold;
+}
+
+th, td{
+    border-left: 1px solid #b1becb;
+    padding: 8px 15px;
+    font-size: 16px;
+
+}
+
+td:nth-child(1){
+    border-left: 0;
+} 
+
+tr:nth-child(2n){
+    background: #e9e9ed; 
+} 
+
+tbody tr:hover {
+    background: rgb(223, 218, 237);
+}
