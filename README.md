@@ -37,20 +37,6 @@ Abra o [http://localhost:3000/#/](http://localhost:3000/#/) no navegador.
 Certifique-se de ter o [Docker](https://docs.docker.com/engine/install/) instalado e em execução em sua máquina.
 
 
-Podemos executar o sistema de dois jeito utilizando o `docker-compose` ou utilizando o `docker build e docker run`.
-
-`docker-compose`
-Para rodar com o docker-compose, as apis e o app tem que esta na mesma pasta.
-Navegue até o diretório que contém o arquivo docker-compose no terminal.
-Execute **como administrador** o seguinte comando:
-
-docker-compose up
-
-OBS: Irá criar todas as imagens e depois irá criar todos os containers e inicia-los.
-
-`docker build e docker run`
-Será necessario criar imagem e o container de todos os apis e do app que compoe o projeto. as instrucoes de criacao da imagem e do container estao nos arquivos readme de cada api.
-
 
 Para roda o docker do app:
 Navegue até o diretório que contém o Dockerfile e o package no terminal.
@@ -61,7 +47,12 @@ $ docker build -t app_medicacao_front .
 ```
 
 Uma vez criada a imagem, para executar o container basta executar, **como administrador**, seguinte o comando:
-OBS: 1  --network estou definindo uma rede comum para todos os containeres para ter comunicação entre eles.
+OBS: 1  --network: estou definindo uma rede comum para todos os containeres para ter comunicação entre eles.
+
+Caso nao tenha criado a rede executar o comando
+```
+docker network create mvp3medicamento
+```
 
 ```
 $ docker run -d -p 3000:3000 --name app_medicacao_front --network mvp3medicamento app_medicacao_front
