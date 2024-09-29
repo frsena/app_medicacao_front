@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import { useNavigate  } from "react-router-dom";
+import Input from "../components/Input/Input";
+
+import api from "../service/Api";
+import Button from '../components/Button/Button';
+import Header from '../components/Header/Header';
+import Main from '../components/Main/Main';
+import Footer from '../components/Footer/Footer';
+
+
+
+
+export default function Localizacao() {
+
+  const [cep, setCep] = useState('');
+  const [farmacias, setFarmacias] = useState([]);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const buscarFarmacias = async () => {
+        setLoading(true)
+        api.get('/localizacao', {params:{cep}})
+          .then(response => {
+            console.log(response.data);
+            let dados = response.data;
+            setFarmacias(dados);
+            setLoading(false)
+          })
+          .catch(error => {
+            console.error('Erro ao buscar farmácias:', error);
+            alert(error.response.data.mesage);
+            setFarmacias([]);
+            setLoading(false)
+          });
+  }
+
+  const voltar = () => {
+    navigate('/');
+};
+
+  return (
+    <div className="content">
+      <Header titulo='Localizar Farmácias Próximas'></Header>
+      {loading ? 
+                <div>
+                    Carregando...
+                </div>: <div></div>}
+      <Main>
+        <div>
+          <Input
+            type="text"
+            value={cep}
+            onChange={(e) => setCep(e.target.value)}
+            placeholder="Digite o CEP"
+            className="inputDialog"
+          />
+          <Button onClick={buscarFarmacias}>Localizar</Button>
+          <Button onClick={voltar}>Voltar</Button>
+          <ul>
+            {farmacias.map((farmacia) => (
+              <li >
+                <h2>{farmacia.nome}</h2>
+                <p>{farmacia.endereco}</p>
+                <p>{farmacia.telefone}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Main>
+      <Footer></Footer>
+    </div>
+  );
+}
